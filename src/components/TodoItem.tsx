@@ -59,8 +59,8 @@ export const TodoItem: FC<TodoItemProps> = ({
         onChange={(e) => onSelect(e.target.checked, id)}
       />
       <Label checked={checked}>{label}</Label>
-      <Pencil onClick={onChange} />
-      <Trash onClick={onDelete} />
+      <Pencil onClick={()=>onChange(id)} />
+      <Trash onClick={()=>onDelete(id)} />
     </Wrapper>
   );
 };
