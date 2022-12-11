@@ -28,7 +28,7 @@ function App() {
     ]);
   }, []);
 
-  const handleChange = useCallback((checked: boolean, id:string) => {
+  const handleSelect = useCallback((checked: boolean, id:string) => {
     const newTodos = todos.map((todo) => {
       if (id === todo.id) {
         return { ...todo, checked };
@@ -44,7 +44,7 @@ function App() {
       <AddInput onAdd={addTodo} />
       <TodoList>
         {todos.map((todo) => (
-          <TodoItem {...todo} onChange={handleChange} />
+          <TodoItem {...todo} onSelect={handleSelect} />
         ))}
       </TodoList>
     </Wrapper>
