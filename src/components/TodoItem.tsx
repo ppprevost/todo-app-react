@@ -38,8 +38,8 @@ export interface TodoItemProps {
   label: string;
   checked?: boolean;
   onSelect: (checked: boolean, id: string) => void;
-  onChange: (id: string) => void;
-  onDelete: (id: string) => void;
+  onChange?: (id: string) => void;
+  onDelete?: (id: string) => void;
 }
 
 export const TodoItem: FC<TodoItemProps> = ({
