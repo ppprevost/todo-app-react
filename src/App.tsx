@@ -18,7 +18,7 @@ const Wrapper = styled.div({
 function App() {
   const [todos, setTodos] = useLocalStorage<Todo[]>("todos", initialData);
   const addTodo = useCallback((label: string) => {
-    setTodos( [
+    setTodos([
       {
         id: uuid(),
         label,
@@ -28,14 +28,14 @@ function App() {
     ]);
   }, []);
 
-  const handleSelect = useCallback((checked: boolean, id:string) => {
+  const handleSelect = useCallback((checked: boolean, id: string) => {
     const newTodos = todos.map((todo) => {
       if (id === todo.id) {
         return { ...todo, checked };
       }
       return todo;
     });
-    setTodos(newTodos)
+    setTodos(newTodos);
   }, []);
 
   return (
