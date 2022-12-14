@@ -4,13 +4,19 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import Login from "./pages/Login";
-import Todos from "./pages/Todos";
-import { useEffect, useState } from "react";
+
+import { useEffect, lazy } from "react";
 import useLocalStorage from "./hooks/useLocaleStorage";
 
-const App = () => {
+const Todos = lazy(
+  () => import(/* webpackChunkName: "Todo" */ "./pages/Todos")
+);
 
+const Login = lazy(
+  () => import(/* webpackChunkName: "Login" */ "./pages/Login")
+);
+
+const App = () => {
   const [user, setUser] = useLocalStorage("user", null);
   useEffect(() => {}, []);
 
@@ -23,7 +29,13 @@ const App = () => {
         />
         <Route
           path="/"
-          element={user ? <Navigate to="/todos" replace /> : <Login setUser={setUser} />}
+          element={
+            user ? (
+              <Navigate to="/todos" replace />
+            ) : (
+              <Login setUser={setUser} />
+            )
+          }
         />
       </Routes>
     </Router>
