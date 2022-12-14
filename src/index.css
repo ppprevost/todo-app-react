@@ -1,6 +1,6 @@
 html, body {
 
-  background: linear-gradient(89.94deg, #0050E5 0.05%, #005EFF 53.64%, #0050E3 99.94%);
+  background: linear-gradient(176deg, #0050E5 0.05%, #005EFF 53.64%, #0050E3 99.94%);
   font-size: 1.1rem;
   font-family: 'Roboto', Arial, sans-serif;
   height: 100%;
@@ -14,3 +14,5 @@ html, body {
   padding: 0;
   box-sizing: border-box;
 }
+
+h1{margin-bottom: 20px}

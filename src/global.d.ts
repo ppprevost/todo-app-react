@@ -7,4 +7,10 @@ interface Todo {
     id: string;
     label: string;
     checked: boolean;
+    created_at: Date;
+}
+
+interface User {
+    username:string;
+    avatar:string;
 }
