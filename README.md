@@ -22,6 +22,16 @@ Let me know if you have any questions or feedback.
 
 Pierre-Philippe PRevost
 
+# Stack
+
+React
+React Router
+MSW
+React-Query
+Typescript
+Vite
+React-Testing-Library
+
 # Limitations
 The app does not currently sync with external servers, so your to-do list will only be available on the device you are using. It's using local Storage and MSW to mock a server
 
