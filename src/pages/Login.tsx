@@ -1,4 +1,4 @@
-import React, { useEffect, FC } from "react";
+import React, { useEffect, FC, useCallback } from "react";
 import { css } from "@emotion/core";
 import { AxiosResponse } from "axios";
 import { useMutation } from "react-query";
@@ -17,6 +17,14 @@ export const Input = styled.input`
 export const PasswordInput = styled(Input)`
   &[type="password"] {
   }
+`;
+
+const Title = styled.h1`
+  text-align: center;
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  width: 300px;
 `;
 
 const Btn = styled.button`
@@ -74,21 +82,24 @@ const LoginForm: FC<{ setUser: Function }> = ({ setUser }) => {
     data,
   } = useMutation<AxiosResponse>("login");
 
-  const handleSubmit: React.FormEventHandler = (event) => {
-    event.preventDefault();
-    login({ password, username } as never);
-    // Submit the username and password to the server
-  };
+  const handleSubmit: React.FormEventHandler = useCallback(
+    (event) => {
+      event.preventDefault();
+      login({ password, username } as never);
+      // Submit the username and password to the server
+    },
+    [password, username, login]
+  );
 
   useEffect(() => {
     if (isSuccess) {
       setUser({ avatar: data?.data.avatar, username: data?.data.username });
     }
-  }, [isSuccess, data]);
+  }, [isSuccess, data, setUser]);
 
   return (
     <div>
-      <h1>Trustpair Todo App Login</h1>
+      <Title>Trustpair Todo App Login</Title>
       <Flex justifyContent={"center"}>
         <form onSubmit={handleSubmit}>
           <Flex flexDirection={"column"}>
