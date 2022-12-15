@@ -94,7 +94,7 @@ const mutations = (queryClient: QueryClient) => {
     onError: (error, variables, context) => {
       queryClient.invalidateQueries("login");
     },
-    retry: 1,
+
   });
   return queryClient;
 };

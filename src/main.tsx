@@ -8,7 +8,10 @@ import mutations from "./services/mutations";
 
 // Create a client
 const queryClient = new QueryClient({
-  defaultOptions: { queries: { refetchOnWindowFocus: false } },
+  defaultOptions: {
+    queries: { refetchOnWindowFocus: false },
+    mutations: { retry: false },
+  },
 });
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
