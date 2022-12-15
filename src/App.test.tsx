@@ -16,6 +16,6 @@ describe("<App />", () => {
 
     await waitFor(() => {
       expect(getByTestId("todos-page")).toBeInTheDocument();
-    });
+    }, {timeout:4000});
   });
 });

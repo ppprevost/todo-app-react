@@ -1,4 +1,5 @@
 import "@testing-library/jest-dom";
+import {vi} from "vitest";
 
 let localStorageMock = (function () {
   let store = new Map();
@@ -21,3 +22,6 @@ let localStorageMock = (function () {
   };
 })();
 Object.defineProperty(window, "localStorage", { value: localStorageMock });
+
+
+vi.setT
