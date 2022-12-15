@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { AddInput } from "../components/AddInput";
 import { TodoItem } from "../components/TodoItem";
@@ -9,7 +9,6 @@ import axios from "axios";
 import useLocalStorage from "../hooks/useLocaleStorage";
 import { sortData, sortOptions } from "../utils";
 import { Text } from "rebass";
-import { Navigate } from "react-router-dom";
 
 const Wrapper = styled.div({
   display: "flex",
