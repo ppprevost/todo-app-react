@@ -37,4 +37,4 @@ Vitest
 The app does not currently sync with external servers, so your to-do list will only be available on the device you are using. It's using local Storage and MSW to mock a server
 
 Here's the demo : 
-https://todo-app-react-mz5drnjes-ppprevost.vercel.app/
+todo-app-react-v9za.vercel.app
