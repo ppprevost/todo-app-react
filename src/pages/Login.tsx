@@ -2,74 +2,8 @@ import React, { useEffect, FC, useCallback } from "react";
 import { css } from "@emotion/core";
 import { AxiosResponse } from "axios";
 import { useMutation } from "react-query";
-import styled from "styled-components";
 import { Flex } from "rebass";
-
-export const Input = styled.input`
-  width: 100%;
-  border-radius: 5px;
-  border-color: grey;
-  height: 26px;
-  max-width: 300px;
-  display: block;
-`;
-
-export const PasswordInput = styled(Input)`
-  &[type="password"] {
-  }
-`;
-
-const Title = styled.h1`
-  text-align: center;
-  color: white;
-  margin-top: 20px;
-  margin-bottom: 30px;
-  width: 300px;
-`;
-
-const Btn = styled.button`
-  background-color: hsla(347, 49%, 46%, 1);
-  border: 1px solid hsla(0, 0%, 0%, 0.4);
-  white-space: nowrap;
-  color: hsla(150, 14%, 97%, 1);
-  cursor: pointer;
-  outline: none;
-  font-size: 3rem;
-  text-shadow: 0.1rem 0.1rem 0.5rem hsla(0, 0%, 0%, 0.5);
-  letter-spacing: 0.1rem;
-  border-radius: 0.5rem;
-  user-select: none;
-  padding: 1rem 1.2rem;
-
-  transition: all 0.1s ease-in;
-
-  ::-moz-focus-inner {
-    border: 0;
-  }
-
-  &:active {
-    background-color: hsla(347, 49%, 26%, 1);
-  }
-
-  @media screen and (max-width: 45em) {
-    padding: 1rem 1rem;
-    font-size: 1.5rem;
-    margin: 0.5rem;
-  }
-`;
-
-const SignInBtn = styled(Btn)`
-  text-decoration: none;
-  background-color: hsla(218, 100%, 47%, 1);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.0125),
-    0 1px 1px rgba(0, 0, 0, 0.05);
-  border-bottom-width: 0.5rem;
-
-  &:active {
-    border-bottom-width: 0.1rem;
-    border-top-width: 0.5rem;
-  }
-`;
+import { Input, PasswordInput, SignInBtn, Title, Label } from "./Login.styles";
 
 const LoginForm: FC<{ setUser: Function }> = ({ setUser }) => {
   const [username, setUsername] = React.useState("");
@@ -103,7 +37,7 @@ const LoginForm: FC<{ setUser: Function }> = ({ setUser }) => {
       <Flex justifyContent={"center"}>
         <form onSubmit={handleSubmit}>
           <Flex flexDirection={"column"}>
-            <label data-testid={"username-login"}>
+            <Label data-testid={"username-login"}>
               <span>Username:</span>
               <Input
                 data-testid={"input-username"}
@@ -123,8 +57,8 @@ const LoginForm: FC<{ setUser: Function }> = ({ setUser }) => {
                 value={username}
                 onChange={(event) => setUsername(event.target.value)}
               />
-            </label>
-            <label data-testid={"password-login"}>
+            </Label>
+            <Label data-testid={"password-login"}>
               <span>Password:</span>
               <PasswordInput
                 data-testid={"input-password"}
@@ -144,7 +78,7 @@ const LoginForm: FC<{ setUser: Function }> = ({ setUser }) => {
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
               />
-            </label>
+            </Label>
           </Flex>
           <Flex justifyContent={"center"} mt={10}>
             <SignInBtn data-testid={"button-send-login"} type="submit">
