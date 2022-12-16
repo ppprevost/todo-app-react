@@ -9,7 +9,7 @@ const worker = setupWorker(
     ) {
       const gender = ["men", "women"];
       const getImage = `https://randomuser.me/api/portraits/${
-        gender[Math.floor(Math.random() + 1)]
+        gender[Math.random()<0.5?0:1]
       }/${Math.floor((Math.random() + 1) * 10)}.jpg`;
 
       return res(
